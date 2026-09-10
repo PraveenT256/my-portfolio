@@ -67,9 +67,12 @@ export const projects = [
     tag: 'Personal · Open source',
     title: 'NexaChain AI',
     description:
-      'A personal engineering project. Full source, structure, and documentation are available in the public repository below.',
-    chips: ['JavaScript', 'Node.js'],
-    link: { href: 'https://github.com/PraveenT256/NEXACHAIN-AI.git', label: 'View on GitHub' },
+      'A MERN-stack investment and referral platform (auth, daily ROI cron, multi-level referral tree). The live demo runs on seeded sample data with no real backend, payments, or accounts.',
+    chips: ['React (Vite)', 'Node.js', 'Express', 'MongoDB'],
+    links: [
+      { href: 'https://praveent256.github.io/NEXACHAIN-AI/', label: 'Live Demo' },
+      { href: 'https://github.com/PraveenT256/NEXACHAIN-AI', label: 'View on GitHub' },
+    ],
   },
   {
     tag: 'Academic project',
@@ -77,6 +80,17 @@ export const projects = [
     description:
       'Full-stack web application for managing tourism packages, bookings, and customer data. Improved booking efficiency using MongoDB and Node.js.',
     chips: ['Node.js', 'MongoDB', 'Full-stack'],
+  },
+  {
+    tag: 'Personal · This site',
+    title: 'Portfolio Website',
+    description:
+      'This portfolio itself — built with React (Vite), deployed on GitHub Pages with an automated CI/CD workflow that rebuilds and publishes on every push.',
+    chips: ['React (Vite)', 'GitHub Actions', 'GitHub Pages'],
+    links: [
+      { href: 'https://praveent256.github.io/my-portfolio/', label: 'Live Site' },
+      { href: 'https://github.com/PraveenT256/my-portfolio', label: 'View on GitHub' },
+    ],
   },
 ]
 

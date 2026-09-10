@@ -20,13 +20,17 @@ export default function Projects() {
                   <span key={chip}>{chip}</span>
                 ))}
               </div>
-              {project.link && (
-                <a className="p-link" href={project.link.href} target="_blank" rel="noopener noreferrer">
-                  {project.link.label}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M7 17L17 7M7 7h10v10" />
-                  </svg>
-                </a>
+              {(project.links || (project.link ? [project.link] : [])).length > 0 && (
+                <div className="p-links">
+                  {(project.links || [project.link]).map((link) => (
+                    <a key={link.href} className="p-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                      {link.label}
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M7 17L17 7M7 7h10v10" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
               )}
             </Reveal>
           ))}
