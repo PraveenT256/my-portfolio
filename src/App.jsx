@@ -1,4 +1,5 @@
 import { ToastProvider } from './context/ToastContext.jsx'
+import Universe from './components/Universe.jsx'
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -12,6 +13,7 @@ import Footer from './components/Footer.jsx'
 export default function App() {
   return (
     <ToastProvider>
+      <Universe />
       <Nav />
       <Hero />
       <About />

@@ -1,5 +1,5 @@
 import Reveal from './Reveal.jsx'
-import { experience } from '../data.js'
+import { experience, formatTenure } from '../data.js'
 
 export default function Experience() {
   return (
@@ -15,7 +15,7 @@ export default function Experience() {
               <div className="t-head">
                 <span className="t-role">{item.role}</span>
                 <span className="t-org">&middot; {item.org}</span>
-                <span className="t-date">{item.date}</span>
+                <span className="t-date">{item.start ? formatTenure(item.start, item.end, item.startLabel) : item.date}</span>
               </div>
               <p className="t-desc">{item.description}</p>
               {item.bullets && (

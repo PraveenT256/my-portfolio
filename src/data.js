@@ -16,11 +16,40 @@ export const roles = [
   'Modeling data with MongoDB & Mongoose',
 ]
 
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+// Turns a start date (and optional end date; defaults to today) into
+// "Jun 2025 – Present · 1 yr 5 mos", recalculated every time the page loads.
+export function formatTenure(start, end, label) {
+  const s = new Date(start)
+  const e = end ? new Date(end) : new Date()
+  let months = (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth())
+  months = Math.max(months + 1, 0) // count the start month as a full month
+  const y = Math.floor(months / 12)
+  const m = months % 12
+  const parts = []
+  if (y) parts.push(`${y} yr${y > 1 ? 's' : ''}`)
+  if (m || !y) parts.push(`${m} month${m === 1 ? '' : 's'}`)
+  const endLabel = end ? `${MONTHS[e.getMonth()]} ${e.getFullYear()}` : 'Present'
+  const from = label ? new Date(label) : s // `label` overrides only the start date shown
+  return `${MONTHS[from.getMonth()]} ${from.getFullYear()} – ${endLabel} · ${parts.join(' ')}`
+}
+
+// Start of overall professional experience; drives the "years of experience" stat.
+export const careerStart = '2025-07-01'
+
+export function yearsOfExperience(start = careerStart) {
+  const s = new Date(start)
+  const e = new Date()
+  const months = (e.getFullYear() - s.getFullYear()) * 12 + (e.getMonth() - s.getMonth()) + 1
+  return (Math.max(months, 0) / 12).toFixed(1)
+}
+
 export const experience = [
   {
     role: 'MERN Stack Developer',
     org: 'Empire',
-    date: 'Feb 2026 – Jul 2026',
+    start: '2026-02-01',
     description:
       'Worked on Blue Pixel, a full-stack property leasing and buying platform where organizations onboard, publish, and manage property listings end to end.',
     bullets: [
@@ -30,6 +59,13 @@ export const experience = [
       'Wrote unit and integration tests with Vitest, and followed structured logging, code review, and CI/CD practices in a Git/GitHub workflow.',
     ],
     link: { href: 'https://bluepxl.com/', label: 'bluepxl.com ↗' },
+  },
+  {
+    role: 'Vibe Coding',
+    org: 'AI-assisted development',
+    start: '2026-02-01',
+    description:
+      'Building and shipping software with AI-assisted, prompt-driven workflows — turning ideas into working full-stack features quickly while reviewing, testing and owning the code that ships.',
   },
   {
     role: 'Front-End & MERN Stack Development Intern',
@@ -95,7 +131,7 @@ export const projects = [
 ]
 
 export const education = [
-  { role: 'B.Tech, Computer Science & Engineering', date: '2021 – 2025', description: 'Gandhi Institute for Technology, Bhubaneswar · CGPA 7.13' },
+  { role: 'B.Tech, Computer Science & Engineering (AI)', date: '2021 – 2025', description: 'Gandhi Institute for Technology, Bhubaneswar · CGPA 7.13' },
   { role: 'Intermediate', date: '2019 – 2021', description: 'Srigayatri Jr. College, Visakhapatnam · 65%' },
   { role: 'Matriculation', date: '2018 – 2019', description: 'Sarvani Vidyalaya, Srikakulam · 82%' },
 ]

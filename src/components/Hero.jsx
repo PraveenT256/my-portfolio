@@ -1,10 +1,8 @@
-import HeroCanvas from './HeroCanvas.jsx'
 import RoleRotator from './RoleRotator.jsx'
 
 export default function Hero() {
   return (
     <section className="hero" id="home">
-      <HeroCanvas />
       <div className="wrap hero-inner">
         <div>
           <p className="eyebrow">MERN Stack Developer</p>

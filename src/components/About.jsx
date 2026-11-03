@@ -1,6 +1,6 @@
 import Reveal from './Reveal.jsx'
 import CopyLink from './CopyLink.jsx'
-import { contact } from '../data.js'
+import { contact, yearsOfExperience } from '../data.js'
 
 export default function About() {
   return (
@@ -29,8 +29,8 @@ export default function About() {
               <div className="label">Production SaaS platform shipped</div>
             </div>
             <div className="stat">
-              <div className="num">3</div>
-              <div className="label">Developer roles &amp; internships</div>
+              <div className="num">{yearsOfExperience()}</div>
+              <div className="label">Years of overall experience</div>
             </div>
             <div className="stat">
               <div className="num">7.13</div>
